@@ -31,37 +31,37 @@
     <meta name="theme-col p-2or" content="#fafafa">
 
 </head>
-<body class="container-fluid">
+<body class="container-fluid main">
 
 
 <main class="container  p-5">
 
     <!---Create an array of buttons--->
-    <div class="container">
-        <img src="img/logo.png" alt="Logo Pokedex ">
-        <h1 class="titlecaption">Pokemon Database</h1>
+    <div class="row " id="title">
+            <h1 class="mx-auto titlecaption "><img src="img/logo.png" alt="Logo Pokedex ">Pokemon Database</h1>
     </div>
 
 
-    <section class="container-main">
+    <section class="row container-fluid" id="pokedex-tpl">
 
-        <img src="img/back.png" alt="PokeDox ">
+        <div class="col-md-6 pt-md-6 pl-md-6 mt-md-5 ">
+            <div class="row search mt-5 ">
+                <input id="search" type="text" name="pokemon" placeholder="Pokémon name or ID">
+                <button type="button" class="btn btn-primary btn-outline-warning" id="goSearch">Search</button>
+            </div>
 
-        <template id="pokedex-tpl">
-            <ul>
-                <li class="name">
-                <li class="id"></li>
-                <li class="abilities"></li>
-                <li class="moves"></li>
-                <li class="evolution"></li>
-            </ul>
-            <img class="image" src="img/pokedex_leyout.png" alt="">
-        </template>
-
-        <div class="search">
-            <input id="search" type="text" name="pokemon" placeholder="Pokémon name or ID">
-            <div class="button"> <button id="goSearch">Search Poké</button></div>
+            <button type="button" class="row btn btn-primary btn-outline-danger" id="generation">Generation</button>
+            <div class="row" id="evolution"></div>
         </div>
+        <div class="col-md-6 pt-md-6 pl-md-6 mt-md-5">
+            <img class="row pokemon-img " id="pokemon-img" src="" alt="pokemon image">
+            <div class="row data" id="name"></div>
+            <div class="row data" id="id"></div>
+            <div class="row data" id="abilities"></div>
+            <div class="row data" id="moves"></div>
+
+        </div>
+
     </section>
 </main>
 <footer>

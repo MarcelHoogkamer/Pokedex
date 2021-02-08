@@ -15,7 +15,6 @@ main {
 .backS {
 
     background-color: white;
-
 }
 
 .container-fluid {
@@ -56,7 +55,7 @@ img {
     list-style-type: none;
 }
 
-.target {
+.image {
     width: 750px;
     height: 500px;
 }

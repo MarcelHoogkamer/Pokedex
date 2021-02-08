@@ -33,3 +33,13 @@ img {
     font-size: large;
 
 }
+
+.container {
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.titlecaption {
+    color: whitesmoke;
+    text-align: center;
+}

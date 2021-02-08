@@ -1,0 +1,35 @@
+
+main {
+
+    margin: 0 auto;
+    font-family: 'Tangerine', serif;
+    font-size: 20px;
+    text-shadow: 2px 2px 2px #4f4f4f;
+
+}
+
+.backS:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.backS {
+
+    background-color: white;
+
+}
+
+.container-fluid {
+    background-image: url("../img/bg.jpg");
+    background-size: cover;
+}
+
+img {
+    max-width: border-box;
+    position: center;
+}
+.navbar-expand-lg{
+    background-color: #261685;
+    font-family: 'Lobster', cursive;
+    font-size: large;
+
+}

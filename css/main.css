@@ -23,7 +23,8 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 900px;
+    min-height: 860px;
+    width: 100%;
 }
 
 img {
@@ -38,10 +39,11 @@ img {
 }
 
 .container-main {
-    width: 50%;
     margin-left: 25%;
     margin-right: 25%;
+    padding: 0;
     background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
     text-align: center;
 }
 
@@ -52,4 +54,9 @@ img {
 
 .nav-item {
     list-style-type: none;
+}
+
+.target {
+    width: 750px;
+    height: 500px;
 }

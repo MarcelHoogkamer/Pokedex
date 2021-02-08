@@ -43,3 +43,7 @@ img {
     color: whitesmoke;
     text-align: center;
 }
+
+.nav-item {
+    list-style-type: none;
+}

@@ -71,34 +71,6 @@
                                         .then(function (thirdEvo) {
                                             evolution3.innerHTML = "<img src='" + thirdEvo.sprites.front_default + "' id='evimg3'>";
                                         });
-                                } else                                 if(evolution.chain.evolves_to.length >= 1) {
-                                    one = "" + evolution.chain.species.url.replace('-species', '') + "";
-                                    two = "" + evolution.chain.evolves_to[0].species.url.replace('-species', '') + "";
-                                    three = "" + evolution.chain.evolves_to[0].species.url.replace('-species', '') + "";
-
-                                    fetch(one)
-                                        .then(function (response) {
-                                            return response.json();
-                                        })
-                                        .then(function (firstEvo) {
-                                            evolution1.innerHTML = "<img src='" + firstEvo.sprites.front_default + "' id='evimg1'>";
-                                        });
-
-                                    fetch(two)
-                                        .then(function (response) {
-                                            return response.json();
-                                        })
-                                        .then(function (secondEvo) {
-                                            evolution2.innerHTML = "<img src='" + secondEvo.sprites.front_default + "' id='evimg2'>";
-                                        });
-
-                                    fetch(three)
-                                        .then(function (response) {
-                                            return response.json();
-                                        })
-                                        .then(function (thirdEvo) {
-                                            evolution3.innerHTML = "<img src='" + thirdEvo.sprites.front_default + "' id='evimg3'>";
-                                        });
                                 }
                             });
                     });

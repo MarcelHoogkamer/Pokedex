@@ -1,4 +1,3 @@
-
 main {
 
     margin: 0 auto;
@@ -83,10 +82,56 @@ img {
     height: 38px;
 }
 .row.data{
+<<<<<<< HEAD
+    margin-left: 60%;
+}
+
+.row.data2{
     margin-left: 6%;
 }
+
+=======
+    margin-left: 6%;
+}
+>>>>>>> cc4e03720a0f8e6d78ac0fe489a77c0c7ce8251e
 #name{
     text-align: center;
     margin-top: 12%;
 
+<<<<<<< HEAD
+}
+
+.col-md-6.pt-md-6.pl-md-6.mt-md-5{
+    margin-top: 20%;
+}
+
+#evolution1 {
+    float: left;
+}
+#evolution2 {
+}
+
+#evolution3 {
+}
+
+
+#evimg {
+    height: 75px;
+    width: 75px;
+}
+
+#mainimg {
+    height: 200px;
+    width: 200px;
+}
+
+#movestable {
+    width: 400px;
+    margin-left: 6%;
+}
+
+tr, td {
+    width: 50px;
+=======
+>>>>>>> cc4e03720a0f8e6d78ac0fe489a77c0c7ce8251e
 }

@@ -46,7 +46,7 @@
                                 if(evolution.chain.evolves_to.length === 1) {
                                     one = "" + evolution.chain.species.url.replace('-species', '') + "";
                                     two = "" + evolution.chain.evolves_to[0].species.url.replace('-species', '') + "";
-                                    if (evolution.chain.evolves_to[0].evolves_to[0] != undefined){
+                                    if (evolution.chain.evolves_to[0].evolves_to[0] !== undefined){
                                         three = "" + evolution.chain.evolves_to[0].evolves_to[0].species.url.replace('-species', '') + "";
                                     }
 

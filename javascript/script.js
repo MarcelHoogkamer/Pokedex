@@ -31,8 +31,7 @@
                 document.getElementById("move2").innerHTML = allMoves[1].move.name;
                 document.getElementById("move3").innerHTML = allMoves[2].move.name;
                 document.getElementById("move4").innerHTML = allMoves[3].move.name;
-                
-                // DISPLAY THE EVOLUTIONS
+
                 fetch(pokemon.species.url)
                     .then(function(response) {
                         return response.json();
@@ -44,156 +43,84 @@
                             })
                             .then(function(evolution) {
 
-                                console.log(evolution, species)
-                                if(evolution.chain.evolves_to.length == 1){
-                                    one = ""+evolution.chain.species.url.replace('-species','')+"";
-                                    console.log(evolution.chain.species.url);
-                                    two = ""+evolution.chain.evolves_to[0].species.url.replace('-species','')+"";
+                                if(evolution.chain.evolves_to.length >= 1) {
+                                    one = "" + evolution.chain.species.url.replace('-species', '') + "";
+                                    two = "" + evolution.chain.evolves_to[0].species.url.replace('-species', '') + "";
+                                    three = "" + evolution.chain.evolves_to[0].species.url.replace('-species', '') + "";
 
-                                    if(evolution.chain.evolves_to[0].evolves_to[0] != undefined){
-
-                                        three = ""+evolution.chain.evolves_to[0].evolves_to[0].species.url.replace('-species','')+"";
-
-                                        fetch(one)
-                                            .then(function(response) {
-                                                return response.json();
-                                            })
-                                            .then(function(firstEvo) {
-                                                evolution1.classList.remove("gone");
-                                                evolution1.innerHTML = "<img src='"+firstEvo.sprites.front_default+"' id='evimg1'>";
-                                            });
-
-                                        fetch(two)
-                                            .then(function(response) {
-                                                return response.json();
-                                            })
-                                            .then(function(secondEvo) {
-                                                evolution2.classList.remove("gone");
-                                                evolution2.innerHTML = "<img src='"+secondEvo.sprites.front_default+"' id='evimg2'>";
-                                            });
-
-                                        fetch(three)
-                                            .then(function(response) {
-                                                return response.json();
-                                            })
-                                            .then(function(thirdEvo) {
-                                                evolution3.classList.remove("gone");
-                                                evolution3.innerHTML = "<img src='"+thirdEvo.sprites.front_default+"' id='evimg3'>";
-                                            });
-                                    }
-                                    else{
-                                        fetch(one)
-                                            .then(function(response) {
-                                                return response.json();
-                                            })
-                                            .then(function(firstEvo) {
-                                                evolution1.classList.remove("gone");
-                                                evolution1.innerHTML = "<img src='"+firstEvo.sprites.front_default+"' id='evimg1'>";
-
-                                            });
-
-                                        fetch(two)
-                                            .then(function(response) {
-                                                return response.json();
-                                            })
-                                            .then(function(secondEvo) {
-                                                evolution2.classList.remove("gone");
-                                                evolution2.innerHTML = "<img src='"+secondEvo.sprites.front_default+"' id='evimg2'>";
-
-                                            });
-                                        evolution3.innerHTML = "";
-                                        evolution3.classList.add("gone");
-
-                                    }
-                                }
-                                if(evolution.chain.evolves_to.length > 1){
-
-                                    one = ""+evolution.chain.species.url.replace('-species','')+"";
                                     fetch(one)
-                                        .then(function(response) {
+                                        .then(function (response) {
                                             return response.json();
                                         })
-                                        .then(function(firstEvo) {
-                                            evolution1.classList.remove("gone");
-                                            evolution1.innerHTML = "<img src='"+firstEvo.sprites.front_default+"' id='evimg1'>";
+                                        .then(function (firstEvo) {
+                                            evolution1.innerHTML = "<img src='" + firstEvo.sprites.front_default + "' id='evimg1'>";
                                         });
 
-                                    var i = Math.floor(Math.random() * (evolution.chain.evolves_to.length-1)) + 0;
-                                    two = ""+evolution.chain.evolves_to[i].species.url.replace('-species','')+"";
                                     fetch(two)
-                                        .then(function(response) {
+                                        .then(function (response) {
                                             return response.json();
                                         })
-                                        .then(function(secondEvo) {
-                                            evolution2.classList.remove("gone");
-                                            evolution2.innerHTML = "<img src='"+secondEvo.sprites.front_default+"' id='evimg2'>";
+                                        .then(function (secondEvo) {
+                                            evolution2.innerHTML = "<img src='" + secondEvo.sprites.front_default + "' id='evimg2'>";
                                         });
 
-                                    slide = setInterval(function(){
-                                        if(i < evolution.chain.evolves_to.length-1){
-                                            i++;
-                                        }
-                                        else{
-                                            i=0;
-                                        }
-                                        console.log(i);
-                                        two = ""+evolution.chain.evolves_to[i].species.url.replace('-species','')+"";
-                                        fetch(two)
-                                            .then(function(response) {
-                                                return response.json();
-                                            })
-                                            .then(function(secondEvo) {
-                                                evolution2.classList.remove("gone");
-                                                evolution2.innerHTML = "<img src='"+secondEvo.sprites.front_default+"' id='evimg2'>";
-                                            });
-                                    }, 1000);
+                                    fetch(three)
+                                        .then(function (response) {
+                                            return response.json();
+                                        })
+                                        .then(function (thirdEvo) {
+                                            evolution3.innerHTML = "<img src='" + thirdEvo.sprites.front_default + "' id='evimg3'>";
+                                        });
+                                } else                                 if(evolution.chain.evolves_to.length >= 1) {
+                                    one = "" + evolution.chain.species.url.replace('-species', '') + "";
+                                    two = "" + evolution.chain.evolves_to[0].species.url.replace('-species', '') + "";
+                                    three = "" + evolution.chain.evolves_to[0].species.url.replace('-species', '') + "";
 
-                                    evolution3.innerHTML = "";
-                                    evolution3.classList.add("gone");
-                                }
-                                else{
-                                    evolution1.innerHTML = "";
-                                    evolution1.classList.add("gone");
-                                    evolution2.innerHTML = "";
-                                    evolution2.classList.add("gone");
-                                    evolution3.innerHTML = "";
-                                    evolution3.classList.add("gone");
+                                    fetch(one)
+                                        .then(function (response) {
+                                            return response.json();
+                                        })
+                                        .then(function (firstEvo) {
+                                            evolution1.innerHTML = "<img src='" + firstEvo.sprites.front_default + "' id='evimg1'>";
+                                        });
+
+                                    fetch(two)
+                                        .then(function (response) {
+                                            return response.json();
+                                        })
+                                        .then(function (secondEvo) {
+                                            evolution2.innerHTML = "<img src='" + secondEvo.sprites.front_default + "' id='evimg2'>";
+                                        });
+
+                                    fetch(three)
+                                        .then(function (response) {
+                                            return response.json();
+                                        })
+                                        .then(function (thirdEvo) {
+                                            evolution3.innerHTML = "<img src='" + thirdEvo.sprites.front_default + "' id='evimg3'>";
+                                        });
                                 }
                             });
                     });
-
             });
-    }
+        }
 
-    slide = 0;
 
     document.getElementById("first").addEventListener("click", function() {
-        clearInterval(slide);
         allEvolutions(one);
     });
 
     document.getElementById("second").addEventListener("click", function() {
-        clearInterval(slide);
         allEvolutions(two);
     });
 
     document.getElementById("third").addEventListener("click", function() {
-        clearInterval(slide);
         allEvolutions(three);
     });
 
     pressSearch.addEventListener("click", function() {
-        clearInterval(slide);
-        let search = "https://pokeapi.co/api/v2/pokemon/" + document.getElementById("search").value;
+        let search = "https://pokeapi.co/api/v2/pokemon/" + input.value;
         allEvolutions(search.toLowerCase());
-    });
-
-    input.addEventListener("keyup", function(event) {
-        if (event.keyCode === 13) {
-            clearInterval(slide);
-            let search = "https://pokeapi.co/api/v2/pokemon/" + document.getElementById("search").value;
-            allEvolutions(search.toLowerCase());
-        }
     });
 
 

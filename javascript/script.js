@@ -18,20 +18,12 @@
             .then(function(pokemon) {
 
                 let image = pokemon.sprites.front_default;
-                id = parseInt(pokemon.id);
+                let id = parseInt(pokemon.id);
                 let name = pokemon.forms[0].name;
 
-
-                //IMAGE INTO DIV
                 document.getElementById("pokemon-img").innerHTML = "<img src='"+image+"' id='mainimg'>";
-
-                //ID NUMBER INTO DIV
-                document.getElementById("id").innerHTML = "ID NUMBER:" + id;
-
-                //NAME INTO DIV
-                document.getElementById("name").innerHTML = "NAME:" + name.replace('-',' ');
-
-                //PLACE MOVES INTO DIV
+                document.getElementById("id").innerHTML = "ID: " + id;
+                document.getElementById("name").innerHTML = "NAME: " + name;
 
                 let allMoves = pokemon.moves;
 
@@ -68,7 +60,7 @@
                                             })
                                             .then(function(firstEvo) {
                                                 evolution1.classList.remove("gone");
-                                                evolution1.innerHTML = "<img src='"+firstEvo.sprites.front_default+"' id='evimg'>";
+                                                evolution1.innerHTML = "<img src='"+firstEvo.sprites.front_default+"' id='evimg1'>";
                                             });
 
                                         fetch(two)
@@ -77,7 +69,7 @@
                                             })
                                             .then(function(secondEvo) {
                                                 evolution2.classList.remove("gone");
-                                                evolution2.innerHTML = "<img src='"+secondEvo.sprites.front_default+"' id='evimg'>";
+                                                evolution2.innerHTML = "<img src='"+secondEvo.sprites.front_default+"' id='evimg2'>";
                                             });
 
                                         fetch(three)
@@ -86,7 +78,7 @@
                                             })
                                             .then(function(thirdEvo) {
                                                 evolution3.classList.remove("gone");
-                                                evolution3.innerHTML = "<img src='"+thirdEvo.sprites.front_default+"' id='evimg'>";
+                                                evolution3.innerHTML = "<img src='"+thirdEvo.sprites.front_default+"' id='evimg3'>";
                                             });
                                     }
                                     else{
@@ -96,7 +88,7 @@
                                             })
                                             .then(function(firstEvo) {
                                                 evolution1.classList.remove("gone");
-                                                evolution1.innerHTML = "<img src='"+firstEvo.sprites.front_default+"' id='evimg'>";
+                                                evolution1.innerHTML = "<img src='"+firstEvo.sprites.front_default+"' id='evimg1'>";
 
                                             });
 
@@ -106,7 +98,7 @@
                                             })
                                             .then(function(secondEvo) {
                                                 evolution2.classList.remove("gone");
-                                                evolution2.innerHTML = "<img src='"+secondEvo.sprites.front_default+"' id='evimg'>";
+                                                evolution2.innerHTML = "<img src='"+secondEvo.sprites.front_default+"' id='evimg2'>";
 
                                             });
                                         evolution3.innerHTML = "";
@@ -123,7 +115,7 @@
                                         })
                                         .then(function(firstEvo) {
                                             evolution1.classList.remove("gone");
-                                            evolution1.innerHTML = "1ST + <img src='"+firstEvo.sprites.front_default+"' id='evimg'>";
+                                            evolution1.innerHTML = "<img src='"+firstEvo.sprites.front_default+"' id='evimg1'>";
                                         });
 
                                     var i = Math.floor(Math.random() * (evolution.chain.evolves_to.length-1)) + 0;
@@ -134,7 +126,7 @@
                                         })
                                         .then(function(secondEvo) {
                                             evolution2.classList.remove("gone");
-                                            evolution2.innerHTML = "2ND + <img src='"+secondEvo.sprites.front_default+"' id='evimg'>";
+                                            evolution2.innerHTML = "<img src='"+secondEvo.sprites.front_default+"' id='evimg2'>";
                                         });
 
                                     slide = setInterval(function(){
@@ -152,7 +144,7 @@
                                             })
                                             .then(function(secondEvo) {
                                                 evolution2.classList.remove("gone");
-                                                evolution2.innerHTML = "2ND + <img src='"+secondEvo.sprites.front_default+"' id='evimg'>";
+                                                evolution2.innerHTML = "<img src='"+secondEvo.sprites.front_default+"' id='evimg2'>";
                                             });
                                     }, 1000);
 
@@ -176,19 +168,14 @@
     slide = 0;
 
     document.getElementById("first").addEventListener("click", function() {
-        //var one = ""+evolution.chain.species.url.replace('-species','')+"";
         clearInterval(slide);
-        goEvolution(one);
+        allEvolutions(one);
     });
-
-    //if second evolution
 
     document.getElementById("second").addEventListener("click", function() {
         clearInterval(slide);
         allEvolutions(two);
     });
-
-    //if third evolution
 
     document.getElementById("third").addEventListener("click", function() {
         clearInterval(slide);

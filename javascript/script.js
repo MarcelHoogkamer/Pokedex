@@ -1,15 +1,16 @@
 (() => {
+
     let input = document.getElementById("search");
-    let pressSearch = document.getElementById("goSearch");
-    let evolution1 = document.getElementById("evolution1");
-    let evolution2 = document.getElementById("evolution2");
-    let evolution3 = document.getElementById("evolution3");
+    let pressSearch = document.getElementById("pressSearch");
+    let evolution1 = document.getElementById("first");
+    let evolution2 = document.getElementById("second");
+    let evolution3 = document.getElementById("third");
     let move1 = document.getElementById("move1");
     let move2 = document.getElementById("move2");
     let move3 = document.getElementById("move3");
     let move4 = document.getElementById("move4");
 
-    function goEvolution(search){
+    function allEvolutions(search){
         fetch(search)
             .then(function(response) {
                 return response.json();
@@ -17,20 +18,12 @@
             .then(function(pokemon) {
 
                 let image = pokemon.sprites.front_default;
-                id = parseInt(pokemon.id);
+                let id = parseInt(pokemon.id);
                 let name = pokemon.forms[0].name;
 
-
-                //IMAGE INTO DIV
                 document.getElementById("pokemon-img").innerHTML = "<img src='"+image+"' id='mainimg'>";
-
-                //ID NUMBER INTO DIV
-                document.getElementById("id").innerHTML = "ID NUMBER:" + id;
-
-                //NAME INTO DIV
-                document.getElementById("name").innerHTML = "NAME:" + name.replace('-',' ');
-
-                //PLACE MOVES INTO DIV
+                document.getElementById("id").innerHTML = "ID: " + id;
+                document.getElementById("name").innerHTML = "NAME: " + name;
 
                 let allMoves = pokemon.moves;
 
@@ -67,7 +60,7 @@
                                             })
                                             .then(function(firstEvo) {
                                                 evolution1.classList.remove("gone");
-                                                evolution1.innerHTML = "<img src='"+firstEvo.sprites.front_default+"' id='evimg'>";
+                                                evolution1.innerHTML = "<img src='"+firstEvo.sprites.front_default+"' id='evimg1'>";
                                             });
 
                                         fetch(two)
@@ -76,7 +69,7 @@
                                             })
                                             .then(function(secondEvo) {
                                                 evolution2.classList.remove("gone");
-                                                evolution2.innerHTML = "<img src='"+secondEvo.sprites.front_default+"' id='evimg'>";
+                                                evolution2.innerHTML = "<img src='"+secondEvo.sprites.front_default+"' id='evimg2'>";
                                             });
 
                                         fetch(three)
@@ -85,7 +78,7 @@
                                             })
                                             .then(function(thirdEvo) {
                                                 evolution3.classList.remove("gone");
-                                                evolution3.innerHTML = "<img src='"+thirdEvo.sprites.front_default+"' id='evimg'>";
+                                                evolution3.innerHTML = "<img src='"+thirdEvo.sprites.front_default+"' id='evimg3'>";
                                             });
                                     }
                                     else{
@@ -95,7 +88,7 @@
                                             })
                                             .then(function(firstEvo) {
                                                 evolution1.classList.remove("gone");
-                                                evolution1.innerHTML = "<img src='"+firstEvo.sprites.front_default+"' id='evimg'>";
+                                                evolution1.innerHTML = "<img src='"+firstEvo.sprites.front_default+"' id='evimg1'>";
 
                                             });
 
@@ -105,7 +98,7 @@
                                             })
                                             .then(function(secondEvo) {
                                                 evolution2.classList.remove("gone");
-                                                evolution2.innerHTML = "<img src='"+secondEvo.sprites.front_default+"' id='evimg'>";
+                                                evolution2.innerHTML = "<img src='"+secondEvo.sprites.front_default+"' id='evimg2'>";
 
                                             });
                                         evolution3.innerHTML = "";
@@ -122,7 +115,7 @@
                                         })
                                         .then(function(firstEvo) {
                                             evolution1.classList.remove("gone");
-                                            evolution1.innerHTML = "1ST + <img src='"+firstEvo.sprites.front_default+"' id='evimg'>";
+                                            evolution1.innerHTML = "<img src='"+firstEvo.sprites.front_default+"' id='evimg1'>";
                                         });
 
                                     var i = Math.floor(Math.random() * (evolution.chain.evolves_to.length-1)) + 0;
@@ -133,7 +126,7 @@
                                         })
                                         .then(function(secondEvo) {
                                             evolution2.classList.remove("gone");
-                                            evolution2.innerHTML = "2ND + <img src='"+secondEvo.sprites.front_default+"' id='evimg'>";
+                                            evolution2.innerHTML = "<img src='"+secondEvo.sprites.front_default+"' id='evimg2'>";
                                         });
 
                                     slide = setInterval(function(){
@@ -151,7 +144,7 @@
                                             })
                                             .then(function(secondEvo) {
                                                 evolution2.classList.remove("gone");
-                                                evolution2.innerHTML = "2ND + <img src='"+secondEvo.sprites.front_default+"' id='evimg'>";
+                                                evolution2.innerHTML = "<img src='"+secondEvo.sprites.front_default+"' id='evimg2'>";
                                             });
                                     }, 1000);
 
@@ -175,41 +168,36 @@
     slide = 0;
 
     document.getElementById("first").addEventListener("click", function() {
-        //var one = ""+evolution.chain.species.url.replace('-species','')+"";
         clearInterval(slide);
-        goEvolution(one);
+        allEvolutions(one);
     });
-
-    //if second evolution
 
     document.getElementById("second").addEventListener("click", function() {
         clearInterval(slide);
-        goEvolution(two);
+        allEvolutions(two);
     });
-
-    //if third evolution
 
     document.getElementById("third").addEventListener("click", function() {
         clearInterval(slide);
-        goEvolution(three);
+        allEvolutions(three);
     });
 
     pressSearch.addEventListener("click", function() {
         clearInterval(slide);
         let search = "https://pokeapi.co/api/v2/pokemon/" + document.getElementById("search").value;
-        goEvolution(search.toLowerCase());
+        allEvolutions(search.toLowerCase());
     });
 
     input.addEventListener("keyup", function(event) {
         if (event.keyCode === 13) {
             clearInterval(slide);
             let search = "https://pokeapi.co/api/v2/pokemon/" + document.getElementById("search").value;
-            goEvolution(search.toLowerCase());
+            allEvolutions(search.toLowerCase());
         }
     });
 
 
-    goEvolution("https://pokeapi.co/api/v2/pokemon/1");
+    allEvolutions("https://pokeapi.co/api/v2/pokemon/1");
 
 
 })();

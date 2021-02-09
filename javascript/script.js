@@ -22,15 +22,15 @@
                 let name = pokemon.forms[0].name;
 
                 document.getElementById("pokemon-img").innerHTML = "<img src='"+image+"' id='mainimg'>";
-                document.getElementById("id").innerHTML = "ID: " + id;
-                document.getElementById("name").innerHTML = "NAME: " + name;
+                document.getElementById("id").innerText = "ID: " + id;
+                document.getElementById("name").innerText= "NAME: " + name;
 
                 let allMoves = pokemon.moves;
 
-                document.getElementById("move1").innerHTML = allMoves[0].move.name;
-                document.getElementById("move2").innerHTML = allMoves[1].move.name;
-                document.getElementById("move3").innerHTML = allMoves[2].move.name;
-                document.getElementById("move4").innerHTML = allMoves[3].move.name;
+                document.getElementById("move1").innerText = allMoves[0].move.name;
+                document.getElementById("move2").innerText = allMoves[1].move.name;
+                document.getElementById("move3").innerText = allMoves[2].move.name;
+                document.getElementById("move4").innerText = allMoves[3].move.name;
 
                 fetch(pokemon.species.url)
                     .then(function(response) {
@@ -43,7 +43,7 @@
                             })
                             .then(function(evolution) {
 
-                                if(evolution.chain.evolves_to.length >= 1) {
+                                if(evolution.chain.evolves_to.length === 1) {
                                     one = "" + evolution.chain.species.url.replace('-species', '') + "";
                                     two = "" + evolution.chain.evolves_to[0].species.url.replace('-species', '') + "";
                                     three = "" + evolution.chain.evolves_to[0].species.url.replace('-species', '') + "";

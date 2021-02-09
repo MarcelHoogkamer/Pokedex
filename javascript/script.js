@@ -10,20 +10,20 @@
     let move3 = document.getElementById("move3");
     let move4 = document.getElementById("move4");
 
-    function allEvolutions(search) {
+    function allEvolutions(search){
         fetch(search)
-            .then(function (response) {
+            .then(function(response) {
                 return response.json();
             })
-            .then(function (pokemon) {
+            .then(function(pokemon) {
 
                 let image = pokemon.sprites.front_default;
                 let id = parseInt(pokemon.id);
                 let name = pokemon.forms[0].name;
 
-                document.getElementById("pokemon-img").innerHTML = "<img src='" + image + "' id='mainimg'>";
+                document.getElementById("pokemon-img").innerHTML = "<img src='"+image+"' id='mainimg'>";
                 document.getElementById("id").innerText = "ID: " + id;
-                document.getElementById("name").innerText = "NAME: " + name;
+                document.getElementById("name").innerText= "NAME: " + name;
 
                 let allMoves = pokemon.moves;
 
@@ -33,20 +33,22 @@
                 document.getElementById("move4").innerText = allMoves[3].move.name;
 
                 fetch(pokemon.species.url)
-                    .then(function (response) {
+                    .then(function(response) {
                         return response.json();
                     })
-                    .then(function (species) {
+                    .then(function(species) {
                         fetch(species.evolution_chain.url)
-                            .then(function (response) {
+                            .then(function(response) {
                                 return response.json();
                             })
-                            .then(function (evolution) {
+                            .then(function(evolution) {
 
-                                if (evolution.chain.evolves_to.length === 1) {
+                                if(evolution.chain.evolves_to.length === 1) {
                                     one = "" + evolution.chain.species.url.replace('-species', '') + "";
                                     two = "" + evolution.chain.evolves_to[0].species.url.replace('-species', '') + "";
-                                    three = "" + evolution.chain.evolves_to[0].evolves_to[0].species.url.replace('-species', '') + "";
+                                    if (evolution.chain.evolves_to[0].evolves_to[0] != undefined){
+                                        three = "" + evolution.chain.evolves_to[0].evolves_to[0].species.url.replace('-species', '') + "";
+                                    }
 
                                     fetch(one)
                                         .then(function (response) {
@@ -75,22 +77,22 @@
                             });
                     });
             });
-    }
+        }
 
 
-    document.getElementById("first").addEventListener("click", function () {
+    document.getElementById("first").addEventListener("click", function() {
         allEvolutions(one);
     });
 
-    document.getElementById("second").addEventListener("click", function () {
+    document.getElementById("second").addEventListener("click", function() {
         allEvolutions(two);
     });
 
-    document.getElementById("third").addEventListener("click", function () {
+    document.getElementById("third").addEventListener("click", function() {
         allEvolutions(three);
     });
 
-    pressSearch.addEventListener("click", function () {
+    pressSearch.addEventListener("click", function() {
         let search = "https://pokeapi.co/api/v2/pokemon/" + input.value;
         allEvolutions(search.toLowerCase());
     });

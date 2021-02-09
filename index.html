@@ -30,34 +30,28 @@
 
 </head>
 <body class="container-fluid main">
-
-
 <main class="container  p-5">
 
-    <!---Create an array of buttons--->
     <div class="row " id="title">
         <h1 class="mx-auto titlecaption ">Pokemon  <img src="img/logo.png" alt="Logo Pokedex ">  Database</h1>
     </div>
-
 
     <section class="row container-fluid" id="pokedex-tpl">
 
         <div class="col-md-6 pt-md-6 pl-md-6 mt-md-5 ">
             <div class="row search mt-5 ">
                 <label for="search"></label><input id="search" type="text" name="pokemon" placeholder="Pokémon name or ID">
-                <button type="button" class="btn btn-primary btn-outline-warning" id="goSearch">Search</button>
+                <button type="button" class="btn btn-primary btn-outline-warning" id="pressSearch">Search</button>
             </div>
             <button type="button" class="row btn btn-primary btn-outline-danger" id="generation">Generation</button>
-            <div class="row data" id="evolution1"><span id="first"></span></div>
-            <div class="row data" id="evolution2"><span id="second"></span></div>
-            <div class="row data" id="evolution3"><span id="third"></span></div>
+            <div class="row data" id="first"></div>
+            <div class="row data" id="second"></div>
+            <div class="row data" id="third"></div>
         </div>
         <div class="col-md-6 pt-md-6 pl-md-6 mt-md-5">
             <div class="row pokemon-img " id="pokemon-img" src="" alt="pokemon image"></div>
             <div class="row data2" id="name"></div>
             <div class="row data2" id="id"></div>
-            <div class="row data2" id="abilities"></div>
-
             <table id="movestable">
                 <tr>
                     <td><div class="row data2" id="move1"></div></td>

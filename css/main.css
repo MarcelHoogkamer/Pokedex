@@ -42,7 +42,7 @@ img {
 .search{
     text-align: center;
 }
-#goSearch{
+#pressSearch{
     height: 38px;
     background-color: #bea40a;
     margin-top: 120px;
@@ -93,8 +93,6 @@ img {
     text-align: center;
     margin-top: 12%;
 
-}
-
 .col-md-6.pt-md-6.pl-md-6.mt-md-5{
     margin-top: 20%;
 }
@@ -126,4 +124,3 @@ img {
 
 tr, td {
     width: 50px;
-}

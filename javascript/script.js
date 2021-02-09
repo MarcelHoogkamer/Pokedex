@@ -1,15 +1,16 @@
 (() => {
+
     let input = document.getElementById("search");
-    let pressSearch = document.getElementById("goSearch");
-    let evolution1 = document.getElementById("evolution1");
-    let evolution2 = document.getElementById("evolution2");
-    let evolution3 = document.getElementById("evolution3");
+    let pressSearch = document.getElementById("pressSearch");
+    let evolution1 = document.getElementById("first");
+    let evolution2 = document.getElementById("second");
+    let evolution3 = document.getElementById("third");
     let move1 = document.getElementById("move1");
     let move2 = document.getElementById("move2");
     let move3 = document.getElementById("move3");
     let move4 = document.getElementById("move4");
 
-    function goEvolution(search){
+    function allEvolutions(search){
         fetch(search)
             .then(function(response) {
                 return response.json();
@@ -184,32 +185,32 @@
 
     document.getElementById("second").addEventListener("click", function() {
         clearInterval(slide);
-        goEvolution(two);
+        allEvolutions(two);
     });
 
     //if third evolution
 
     document.getElementById("third").addEventListener("click", function() {
         clearInterval(slide);
-        goEvolution(three);
+        allEvolutions(three);
     });
 
     pressSearch.addEventListener("click", function() {
         clearInterval(slide);
         let search = "https://pokeapi.co/api/v2/pokemon/" + document.getElementById("search").value;
-        goEvolution(search.toLowerCase());
+        allEvolutions(search.toLowerCase());
     });
 
     input.addEventListener("keyup", function(event) {
         if (event.keyCode === 13) {
             clearInterval(slide);
             let search = "https://pokeapi.co/api/v2/pokemon/" + document.getElementById("search").value;
-            goEvolution(search.toLowerCase());
+            allEvolutions(search.toLowerCase());
         }
     });
 
 
-    goEvolution("https://pokeapi.co/api/v2/pokemon/1");
+    allEvolutions("https://pokeapi.co/api/v2/pokemon/1");
 
 
 })();

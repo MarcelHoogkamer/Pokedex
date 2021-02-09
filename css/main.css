@@ -47,7 +47,7 @@ img {
     margin-top: 42%;
 
 }
-#goSearch{
+#pressSearch{
     height: 38px;
     background-color: #bea40a;
 
@@ -76,12 +76,10 @@ img {
 .row.evolution{
     height: 75px;
     width: 300px;
-    margin-left: 37%;
+    margin-left: 40%;
     margin-top: 17%;
 }
-#first{
-    margin-left: 50%;
-}
+
 #name{
     text-align: center;
     margin-top: 26%;

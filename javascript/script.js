@@ -2,9 +2,9 @@
 
     let input = document.getElementById("search");
     let pressSearch = document.getElementById("pressSearch");
-    let evolution1 = document.getElementById("first");
-    let evolution2 = document.getElementById("second");
-    let evolution3 = document.getElementById("third");
+    let evolution1 = document.getElementById("evolution1");
+    let evolution2 = document.getElementById("evolution2");
+    let evolution3 = document.getElementById("evolution3");
 
     function allEvolutions(search) {
         fetch(search)
@@ -80,15 +80,15 @@
     }
 
 
-    document.getElementById("first").addEventListener("click", function () {
+    document.getElementById("evolution1").addEventListener("click", function () {
         allEvolutions(one);
     });
 
-    document.getElementById("second").addEventListener("click", function () {
+    document.getElementById("evolution2").addEventListener("click", function () {
         allEvolutions(two);
     });
 
-    document.getElementById("third").addEventListener("click", function () {
+    document.getElementById("evolution3").addEventListener("click", function () {
         allEvolutions(three);
     });
 

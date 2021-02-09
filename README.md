@@ -1,20 +1,21 @@
 # Pokedex
 The Hills - Pokedex
 
-# Authors
+## Authors
 Anton Kantartzhiev
 Mark Hoogkamer
 
-# Date
+## Date
 08.02.2021 - 09.02.2021
 Isengard-PHS
 Fantasy Novel Publishing
 home page
 
+!(img/screenshot.jpg)
 
 The page was made as an online Pokedex application
 
-This project is a website for oll Pokémon enthusiasts. It provides easy accesses to a free database of all Pokémns.
+This project is a website for oll Pokémon enthusiasts. It provides easy accesses to a free database of all Pokémons.
 It consists the names,id's, moves and evolutions for all Pokémons.
 
 LIBRARIES & DEPENDENCIES

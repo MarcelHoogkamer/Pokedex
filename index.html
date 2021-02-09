@@ -14,8 +14,6 @@
     <meta property="og:url" content="../img/logo.jpeg">
     <meta property="og:image" content="img/logo.jpeg">
 
-    <link rel="manifest" href="site.webmanifest">
-    ->
     <link rel="icon" type="imgage/png" href="img/logo.png">
     <link rel="apple-touch-icon" href="img/logo.png">
 
@@ -31,37 +29,48 @@
     <meta name="theme-col p-2or" content="#fafafa">
 
 </head>
-<body class="container-fluid">
+<body class="container-fluid main">
 
 
 <main class="container  p-5">
 
     <!---Create an array of buttons--->
-    <div class="container">
-        <img src="img/logo.png" alt="Logo Pokedex ">
-        <h1 class="titlecaption">Pokemon Database</h1>
+    <div class="row " id="title">
+        <h1 class="mx-auto titlecaption ">Pokemon  <img src="img/logo.png" alt="Logo Pokedex ">  Database</h1>
     </div>
 
 
-    <section class="container-main">
+    <section class="row container-fluid" id="pokedex-tpl">
 
-        <img src="img/back.png" alt="PokeDox ">
-
-        <template id="pokedex-tpl">
-            <ul>
-                <li class="name">
-                <li class="id"></li>
-                <li class="abilities"></li>
-                <li class="moves"></li>
-                <li class="evolution"></li>
-            </ul>
-            <img class="image" src="img/pokedex_leyout.png" alt="">
-        </template>
-
-        <div class="search">
-            <input id="search" type="text" name="pokemon" placeholder="Pokémon name or ID">
-            <div class="button"> <button id="goSearch">Search Poké</button></div>
+        <div class="col-md-6 pt-md-6 pl-md-6 mt-md-5 ">
+            <div class="row search mt-5 ">
+                <label for="search"></label><input id="search" type="text" name="pokemon" placeholder="Pokémon name or ID">
+                <button type="button" class="btn btn-primary btn-outline-warning" id="goSearch">Search</button>
+            </div>
+            <button type="button" class="row btn btn-primary btn-outline-danger" id="generation">Generation</button>
+            <div class="row data" id="evolution1"><span id="first"></span></div>
+            <div class="row data" id="evolution2"><span id="second"></span></div>
+            <div class="row data" id="evolution3"><span id="third"></span></div>
         </div>
+        <div class="col-md-6 pt-md-6 pl-md-6 mt-md-5">
+            <div class="row pokemon-img " id="pokemon-img" src="" alt="pokemon image"></div>
+            <div class="row data2" id="name"></div>
+            <div class="row data2" id="id"></div>
+            <div class="row data2" id="abilities"></div>
+
+            <table id="movestable">
+                <tr>
+                    <td><div class="row data2" id="move1"></div></td>
+                    <td><div class="row data2" id="move2"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="row data2" id="move3"></div></td>
+                    <td><div class="row data2" id="move4"></div></td>
+                </tr>
+            </table>
+
+        </div>
+
     </section>
 </main>
 <footer>

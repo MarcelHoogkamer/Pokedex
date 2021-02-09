@@ -1,9 +1,9 @@
 (() => {
     let input = document.getElementById("search");
     let pressSearch = document.getElementById("goSearch");
-    let evolve1 = document.getElementById("evolve1");
-    let evolve2 = document.getElementById("evolve2");
-    let evolve3 = document.getElementById("evolve3");
+    let evolution1 = document.getElementById("evolution1");
+    let evolution2 = document.getElementById("evolution2");
+    let evolution3 = document.getElementById("evolution3");
     let move1 = document.getElementById("move1");
     let move2 = document.getElementById("move2");
     let move3 = document.getElementById("move3");
@@ -22,7 +22,7 @@
 
 
                 //IMAGE INTO DIV
-                document.getElementById("image").innerHTML = "LOOKS LIKE: <img src='"+image+"'>";
+                document.getElementById("pokemon-img").innerHTML = "<img src='"+image+"' id='mainimg'>";
 
                 //ID NUMBER INTO DIV
                 document.getElementById("id").innerHTML = "ID NUMBER:" + id;
@@ -50,7 +50,7 @@
                                 return response.json();
                             })
                             .then(function(evolution) {
-                                //if it evolves
+
                                 console.log(evolution, species)
                                 if(evolution.chain.evolves_to.length == 1){
                                     one = ""+evolution.chain.species.url.replace('-species','')+"";
@@ -66,8 +66,8 @@
                                                 return response.json();
                                             })
                                             .then(function(firstEvo) {
-                                                evolve1.classList.remove("gone");
-                                                evolve1.innerHTML = "1ST: <img src='"+firstEvo.sprites.front_default+"'>";
+                                                evolution1.classList.remove("gone");
+                                                evolution1.innerHTML = "<img src='"+firstEvo.sprites.front_default+"' id='evimg'>";
                                             });
 
                                         fetch(two)
@@ -75,8 +75,8 @@
                                                 return response.json();
                                             })
                                             .then(function(secondEvo) {
-                                                evolve2.classList.remove("gone");
-                                                evolve2.innerHTML = "2ND + <img src='"+secondEvo.sprites.front_default+"'>";
+                                                evolution2.classList.remove("gone");
+                                                evolution2.innerHTML = "<img src='"+secondEvo.sprites.front_default+"' id='evimg'>";
                                             });
 
                                         fetch(three)
@@ -84,8 +84,8 @@
                                                 return response.json();
                                             })
                                             .then(function(thirdEvo) {
-                                                evolve3.classList.remove("gone");
-                                                evolve3.innerHTML = "3RD + <img src='"+thirdEvo.sprites.front_default+"'>";
+                                                evolution3.classList.remove("gone");
+                                                evolution3.innerHTML = "<img src='"+thirdEvo.sprites.front_default+"' id='evimg'>";
                                             });
                                     }
                                     else{
@@ -94,8 +94,8 @@
                                                 return response.json();
                                             })
                                             .then(function(firstEvo) {
-                                                evolve1.classList.remove("gone");
-                                                evolve1.innerHTML = "1ST + <img src='"+firstEvo.sprites.front_default+"'>";
+                                                evolution1.classList.remove("gone");
+                                                evolution1.innerHTML = "<img src='"+firstEvo.sprites.front_default+"' id='evimg'>";
 
                                             });
 
@@ -104,25 +104,25 @@
                                                 return response.json();
                                             })
                                             .then(function(secondEvo) {
-                                                evolve2.classList.remove("gone");
-                                                evolve2.innerHTML = "2ND + <img src='"+secondEvo.sprites.front_default+"'>";
+                                                evolution2.classList.remove("gone");
+                                                evolution2.innerHTML = "<img src='"+secondEvo.sprites.front_default+"' id='evimg'>";
 
                                             });
-                                        evolve3.innerHTML = "";
-                                        evolve3.classList.add("gone");
+                                        evolution3.innerHTML = "";
+                                        evolution3.classList.add("gone");
 
                                     }
                                 }
                                 if(evolution.chain.evolves_to.length > 1){
-                                    //exceptions like eevee
+
                                     one = ""+evolution.chain.species.url.replace('-species','')+"";
                                     fetch(one)
                                         .then(function(response) {
                                             return response.json();
                                         })
                                         .then(function(firstEvo) {
-                                            evolve1.classList.remove("gone");
-                                            evolve1.innerHTML = "1ST + <img src='"+firstEvo.sprites.front_default+"'>";
+                                            evolution1.classList.remove("gone");
+                                            evolution1.innerHTML = "1ST + <img src='"+firstEvo.sprites.front_default+"' id='evimg'>";
                                         });
 
                                     var i = Math.floor(Math.random() * (evolution.chain.evolves_to.length-1)) + 0;
@@ -132,8 +132,8 @@
                                             return response.json();
                                         })
                                         .then(function(secondEvo) {
-                                            evolve2.classList.remove("gone");
-                                            evolve2.innerHTML = "2ND + <img src='"+secondEvo.sprites.front_default+"'>";
+                                            evolution2.classList.remove("gone");
+                                            evolution2.innerHTML = "2ND + <img src='"+secondEvo.sprites.front_default+"' id='evimg'>";
                                         });
 
                                     slide = setInterval(function(){
@@ -150,21 +150,21 @@
                                                 return response.json();
                                             })
                                             .then(function(secondEvo) {
-                                                evolve2.classList.remove("gone");
-                                                evolve2.innerHTML = "2ND + <img src='"+secondEvo.sprites.front_default+"'>";
+                                                evolution2.classList.remove("gone");
+                                                evolution2.innerHTML = "2ND + <img src='"+secondEvo.sprites.front_default+"' id='evimg'>";
                                             });
                                     }, 1000);
 
-                                    evolve3.innerHTML = "";
-                                    evolve3.classList.add("gone");
+                                    evolution3.innerHTML = "";
+                                    evolution3.classList.add("gone");
                                 }
                                 else{
-                                    evolve1.innerHTML = "";
-                                    evolve1.classList.add("gone");
-                                    evolve2.innerHTML = "";
-                                    evolve2.classList.add("gone");
-                                    evolve3.innerHTML = "";
-                                    evolve3.classList.add("gone");
+                                    evolution1.innerHTML = "";
+                                    evolution1.classList.add("gone");
+                                    evolution2.innerHTML = "";
+                                    evolution2.classList.add("gone");
+                                    evolution3.innerHTML = "";
+                                    evolution3.classList.add("gone");
                                 }
                             });
                     });

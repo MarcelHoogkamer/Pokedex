@@ -22,8 +22,8 @@
                 let name = pokemon.forms[0].name;
 
                 document.getElementById("pokemon-img").innerHTML = "<img src='"+image+"' id='mainimg'>";
-                document.getElementById("id").innerText = "ID: " + id;
-                document.getElementById("name").innerText= "NAME: " + name;
+                document.getElementById("id").innerText = "Id: " + id;
+                document.getElementById("name").innerText= "Name: " + name;
 
                 let allMoves = pokemon.moves;
 

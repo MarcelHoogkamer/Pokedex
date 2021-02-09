@@ -32,32 +32,30 @@
 <body class="container-fluid main">
 
 
-<main class="container  p-5">
-
-    <!---Create an array of buttons--->
+<header>
     <div class="row " id="title">
-<<<<<<< HEAD
-        <h1 class="mx-auto titlecaption ">Pokemon  <img src="img/logo.png" alt="Logo Pokedex ">  Database</h1>
-=======
-            <h1 class="mx-auto titlecaption ">Pokemon  <img src="img/logo.png" alt="Logo Pokedex ">  Database</h1>
->>>>>>> cc4e03720a0f8e6d78ac0fe489a77c0c7ce8251e
+        <h1 class="mx-auto titlecaption ">Pokemon <img src="img/logo.png" alt="Logo Pokedex "> Database</h1>
     </div>
+</header>
 
+<main class="container">
 
     <section class="row container-fluid" id="pokedex-tpl">
 
-        <div class="col-md-6 pt-md-6 pl-md-6 mt-md-5 ">
-            <div class="row search mt-5 ">
-<<<<<<< HEAD
-                <label for="search"></label><input id="search" type="text" name="pokemon" placeholder="Pokémon name or ID">
+        <div class="col-md-6">
+            <div class="row search">
+                <label for="search"></label><input id="search" type="text" name="pokemon"
+                                                   placeholder="Pokémon name or ID">
                 <button type="button" class="btn btn-primary btn-outline-warning" id="goSearch">Search</button>
             </div>
-            <button type="button" class="row btn btn-primary btn-outline-danger" id="generation">Generation</button>
-            <div class="row data" id="evolution1"><span id="first"></span></div>
-            <div class="row data" id="evolution2"><span id="second"></span></div>
-            <div class="row data" id="evolution3"><span id="third"></span></div>
+            <button type="button" class="row btn btn-primary btn-outline-warning" id="generation">Evolution</button>
+            <div class="row evolution">
+                <div class="col-md-3" id="evolution1"><span id="first"></span></div>
+                <div class="col-md-3" id="evolution2"><span id="second"></span></div>
+                <div class="col-md-3" id="evolution3"><span id="third"></span></div>
+            </div>
         </div>
-        <div class="col-md-6 pt-md-6 pl-md-6 mt-md-5">
+        <div class="col-md-6 ">
             <div class="row pokemon-img " id="pokemon-img" src="" alt="pokemon image"></div>
             <div class="row data2" id="name"></div>
             <div class="row data2" id="id"></div>
@@ -65,33 +63,26 @@
 
             <table id="movestable">
                 <tr>
-                    <td><div class="row data2" id="move1"></div></td>
-                    <td><div class="row data2" id="move2"></div></td>
+                    <td>
+                        <div class="row data2" id="move1"></div>
+                    </td>
+                    <td>
+                        <div class="row data2" id="move2"></div>
+                    </td>
                 </tr>
                 <tr>
-                    <td><div class="row data2" id="move3"></div></td>
-                    <td><div class="row data2" id="move4"></div></td>
+                    <td>
+                        <div class="row data2" id="move3"></div>
+                    </td>
+                    <td>
+                        <div class="row data2" id="move4"></div>
+                    </td>
                 </tr>
             </table>
-=======
-                <input id="search" type="text" name="pokemon" placeholder="Pokémon name or ID">
-                <button type="button" class="btn btn-primary btn-outline-warning" id="goSearch">Search</button>
-            </div>
-
-            <button type="button" class="row btn btn-primary btn-outline-danger" id="generation">Generation</button>
-            <div class="row" id="evolution"></div>
-        </div>
-        <div class="col-md-6 pt-md-6 pl-md-6 mt-md-5">
-            <img class="row pokemon-img " id="pokemon-img" src="" alt="pokemon image">
-            <div class="row data" id="name"></div>
-            <div class="row data" id="id"></div>
-            <div class="row data" id="abilities"></div>
-            <div class="row data" id="moves"></div>
->>>>>>> cc4e03720a0f8e6d78ac0fe489a77c0c7ce8251e
-
         </div>
 
     </section>
+
 </main>
 <footer>
 

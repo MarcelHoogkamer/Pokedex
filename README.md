@@ -11,7 +11,7 @@ Isengard-PHS
 Fantasy Novel Publishing
 home page
 
-!(img/screenshot.jpg)
+![Pokémon](img/screenshot.png)
 
 The page was made as an online Pokedex application
 
